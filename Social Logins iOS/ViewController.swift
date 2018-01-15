@@ -29,17 +29,30 @@ class ViewController: UIViewController {
         fbLoginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32.0).isActive = true
         fbLoginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32.0).isActive = true
     }
+    
+    func showAlert(withTitle title: String, message: String) {
+        let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertView.addAction(okAction)
+        self.present(alertView, animated: true, completion: nil)
+    }
 
 }
 
 extension ViewController: FBSDKLoginButtonDelegate {
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        
+        if error != nil {
+            showAlert(withTitle: "Error", message: "Something went wrong. Please try again!")
+        } else if result.isCancelled {
+            
+        } else {
+            showAlert(withTitle: "Success", message: "Successfully Logged in")
+        }
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        
+        showAlert(withTitle: "Success", message: "Successfully Logged out")
     }
 }
 
