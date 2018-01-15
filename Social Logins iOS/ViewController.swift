@@ -23,11 +23,19 @@ class ViewController: UIViewController {
         view.addSubview(fbLoginButton)
         fbLoginButton.center = view.center
         fbLoginButton.delegate = self
+        fetchUserProfileData()
         // Add Constraints to button
         fbLoginButton.translatesAutoresizingMaskIntoConstraints = false
         fbLoginButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 32.0).isActive = true
         fbLoginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32.0).isActive = true
         fbLoginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32.0).isActive = true
+    }
+    
+    func fetchUserProfileData() {
+        let params = ["fields": "email, first_name, last_name, picture"]
+        FBSDKGraphRequest(graphPath: "me", parameters: params).start(completionHandler: { connection, result, error in
+            print(result)
+        })
     }
     
     func showAlert(withTitle title: String, message: String) {
