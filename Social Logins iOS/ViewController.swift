@@ -28,9 +28,10 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Initial UI Setups
-    func initialUISetups() {
-        
-        
+    fileprivate func initialUISetups() {
+        facebookButtonSetup()
+        googleButtonSetup()
+        twitterButtonSetup()
     }
     
     fileprivate func facebookButtonSetup() {
