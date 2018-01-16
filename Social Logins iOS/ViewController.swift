@@ -11,7 +11,7 @@ import FBSDKLoginKit
 import GoogleSignIn
 
 fileprivate enum Defaults {
-    static let buttonTopAnchor: CGFloat = 32.0
+    static let buttonTopAnchor: CGFloat = 66.0
     static let buttonLeadingAnchor: CGFloat = 32.0
     static let buttonTrailingAnchor: CGFloat = 32.0
 }
@@ -94,7 +94,7 @@ extension ViewController: GIDSignInUIDelegate {
 extension ViewController: GIDSignInDelegate {
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        
+        print("Success: \(user)")
     }
     
     
