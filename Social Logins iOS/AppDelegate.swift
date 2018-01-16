@@ -28,11 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        // facebook config
         let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
-        
+        // google config
         GIDSignIn.sharedInstance().handle(url,
                                           sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                           annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        // twitter config
+        TWTRTwitter.sharedInstance().application(app, open: url, options: options)
         return handled
     }
 
