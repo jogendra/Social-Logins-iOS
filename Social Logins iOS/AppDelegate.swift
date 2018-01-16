@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Facebook config
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         // Initialize Google sign-in
-        GIDSignIn.sharedInstance().clientID = "170665834985-g1tupdb9t60oon3r8dmt19sf8n76hi26.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().clientID = Constants.googleClientID
         return true
     }
     

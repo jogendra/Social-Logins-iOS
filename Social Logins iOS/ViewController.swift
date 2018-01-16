@@ -41,11 +41,12 @@ class ViewController: UIViewController {
         view.addSubview(googleSignInButton)
         googleSignInButton.style = .wide
         GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().delegate = self
         // Add Constraints to Google Sign In Button
         googleSignInButton.translatesAutoresizingMaskIntoConstraints = false
         googleSignInButton.topAnchor.constraint(equalTo: fbLoginButton.topAnchor, constant: Defaults.buttonTopAnchor).isActive = true
         googleSignInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Defaults.buttonLeadingAnchor).isActive = true
-        googleSignInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Defaults.buttonTrailingAnchor)
+        googleSignInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Defaults.buttonTrailingAnchor).isActive = true
     }
     
     // Fetch User's Public Facebook Profile Data
@@ -90,3 +91,11 @@ extension ViewController: GIDSignInUIDelegate {
     
 }
 
+extension ViewController: GIDSignInDelegate {
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+    }
+    
+    
+}
