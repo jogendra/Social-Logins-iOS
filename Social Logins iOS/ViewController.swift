@@ -19,8 +19,8 @@ fileprivate enum Defaults {
 
 class ViewController: UIViewController {
 
-    let fbLoginButton = FBSDKLoginButton()
-    let googleSignInButton = GIDSignInButton()
+    fileprivate let fbLoginButton = FBSDKLoginButton()
+    fileprivate let googleSignInButton = GIDSignInButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
