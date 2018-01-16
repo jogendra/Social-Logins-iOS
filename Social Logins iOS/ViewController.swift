@@ -20,17 +20,19 @@ class ViewController: UIViewController {
     
     // MARK: - Initial UI Setups
     func initialUISetups() {
+        // Facebook Login Button Setups
         view.addSubview(fbLoginButton)
         fbLoginButton.center = view.center
         fbLoginButton.delegate = self
         fetchUserProfileData()
-        // Add Constraints to button
+        // Add Constraints to fb login button
         fbLoginButton.translatesAutoresizingMaskIntoConstraints = false
         fbLoginButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 32.0).isActive = true
         fbLoginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32.0).isActive = true
         fbLoginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32.0).isActive = true
     }
     
+    // Fetch User's Public Facebook Profile Data
     func fetchUserProfileData() {
         let params = ["fields": "email, first_name, last_name, picture"]
         FBSDKGraphRequest(graphPath: "me", parameters: params).start(completionHandler: { connection, result, error in
@@ -46,6 +48,8 @@ class ViewController: UIViewController {
     }
 
 }
+
+// MARK: - Facebook SDK Button Delegates
 
 extension ViewController: FBSDKLoginButtonDelegate {
     
