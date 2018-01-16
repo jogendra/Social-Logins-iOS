@@ -10,6 +10,12 @@ import UIKit
 import FBSDKLoginKit
 import GoogleSignIn
 
+fileprivate enum Defaults {
+    static let buttonTopAnchor: CGFloat = 32.0
+    static let buttonLeadingAnchor: CGFloat = 32.0
+    static let buttonTrailingAnchor: CGFloat = 32.0
+}
+
 class ViewController: UIViewController {
 
     let fbLoginButton = FBSDKLoginButton()
@@ -28,17 +34,17 @@ class ViewController: UIViewController {
         fetchUserProfileData()
         // Add Constraints to fb login button
         fbLoginButton.translatesAutoresizingMaskIntoConstraints = false
-        fbLoginButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 32.0).isActive = true
-        fbLoginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32.0).isActive = true
-        fbLoginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32.0).isActive = true
+        fbLoginButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Defaults.buttonTopAnchor).isActive = true
+        fbLoginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Defaults.buttonLeadingAnchor).isActive = true
+        fbLoginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Defaults.buttonTrailingAnchor).isActive = true
         // Google Sign In Button Setups
         view.addSubview(googleSignInButton)
+        googleSignInButton.style = .wide
         // Add Constraints to Google Sign In Button
         googleSignInButton.translatesAutoresizingMaskIntoConstraints = false
-        googleSignInButton.topAnchor.constraint(equalTo: fbLoginButton.topAnchor, constant: 32.0).isActive = true
-        googleSignInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32.0).isActive = true
-        googleSignInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32.0)
-        googleSignInButton.widthAnchor.constraint(equalToConstant: view.frame.width - 64.0).isActive = true
+        googleSignInButton.topAnchor.constraint(equalTo: fbLoginButton.topAnchor, constant: Defaults.buttonTopAnchor).isActive = true
+        googleSignInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Defaults.buttonLeadingAnchor).isActive = true
+        googleSignInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Defaults.buttonTrailingAnchor)
     }
     
     // Fetch User's Public Facebook Profile Data
