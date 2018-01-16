@@ -34,6 +34,8 @@ class ViewController: UIViewController {
         twitterButtonSetup()
     }
     
+    // MARK: Facebook Sign In Button Setup
+    
     fileprivate func facebookButtonSetup() {
         // Facebook Login Button Setups
         view.addSubview(fbLoginButton)
@@ -50,6 +52,8 @@ class ViewController: UIViewController {
         fbLoginButton.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
     }
     
+    // MARK: Google Sign In Button Setup
+    
     fileprivate func googleButtonSetup() {
         // Google Sign In Button Setups
         view.addSubview(googleSignInButton)
@@ -62,6 +66,8 @@ class ViewController: UIViewController {
         googleSignInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Defaults.buttonLeadingAnchor).isActive = true
         googleSignInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Defaults.buttonTrailingAnchor).isActive = true
     }
+    
+    // MARK: Twitter Sign In Button Setup
     
     fileprivate func twitterButtonSetup() {
         // Twitter Login Button
