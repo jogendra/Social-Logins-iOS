@@ -8,10 +8,12 @@
 
 import UIKit
 import FBSDKLoginKit
+import GoogleSignIn
 
 class ViewController: UIViewController {
 
     let fbLoginButton = FBSDKLoginButton()
+    let googleSignInButton = GIDSignInButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +24,6 @@ class ViewController: UIViewController {
     func initialUISetups() {
         // Facebook Login Button Setups
         view.addSubview(fbLoginButton)
-        fbLoginButton.center = view.center
         fbLoginButton.delegate = self
         fetchUserProfileData()
         // Add Constraints to fb login button
@@ -30,6 +31,14 @@ class ViewController: UIViewController {
         fbLoginButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 32.0).isActive = true
         fbLoginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32.0).isActive = true
         fbLoginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32.0).isActive = true
+        // Google Sign In Button Setups
+        view.addSubview(googleSignInButton)
+        // Add Constraints to Google Sign In Button
+        googleSignInButton.translatesAutoresizingMaskIntoConstraints = false
+        googleSignInButton.topAnchor.constraint(equalTo: fbLoginButton.topAnchor, constant: 32.0).isActive = true
+        googleSignInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32.0).isActive = true
+        googleSignInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32.0)
+        googleSignInButton.widthAnchor.constraint(equalToConstant: view.frame.width - 64.0).isActive = true
     }
     
     // Fetch User's Public Facebook Profile Data
