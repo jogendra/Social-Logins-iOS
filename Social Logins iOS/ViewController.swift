@@ -19,8 +19,8 @@ fileprivate enum Defaults {
 
 class ViewController: UIViewController {
 
-    let fbLoginButton = FBSDKLoginButton()
-    let googleSignInButton = GIDSignInButton()
+    fileprivate let fbLoginButton = FBSDKLoginButton()
+    fileprivate let googleSignInButton = GIDSignInButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,15 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Initial UI Setups
-    func initialUISetups() {
+    fileprivate func initialUISetups() {
+        facebookButtonSetup()
+        googleButtonSetup()
+        twitterButtonSetup()
+    }
+    
+    // MARK: Facebook Sign In Button Setup
+    
+    fileprivate func facebookButtonSetup() {
         // Facebook Login Button Setups
         view.addSubview(fbLoginButton)
         fbLoginButton.delegate = self
@@ -42,6 +50,11 @@ class ViewController: UIViewController {
         fbLoginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Defaults.buttonLeadingAnchor).isActive = true
         fbLoginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Defaults.buttonTrailingAnchor).isActive = true
         fbLoginButton.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
+    }
+    
+    // MARK: Google Sign In Button Setup
+    
+    fileprivate func googleButtonSetup() {
         // Google Sign In Button Setups
         view.addSubview(googleSignInButton)
         googleSignInButton.style = .wide
@@ -52,6 +65,11 @@ class ViewController: UIViewController {
         googleSignInButton.topAnchor.constraint(equalTo: fbLoginButton.topAnchor, constant: Defaults.buttonTopAnchor).isActive = true
         googleSignInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Defaults.buttonLeadingAnchor).isActive = true
         googleSignInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Defaults.buttonTrailingAnchor).isActive = true
+    }
+    
+    // MARK: Twitter Sign In Button Setup
+    
+    fileprivate func twitterButtonSetup() {
         // Twitter Login Button
         let twitterLoginButton = TWTRLogInButton(logInCompletion: { session, error in
             if (session != nil) {
@@ -72,7 +90,7 @@ class ViewController: UIViewController {
     func fetchUserProfileData() {
         let params = ["fields": "email, first_name, last_name, picture"]
         FBSDKGraphRequest(graphPath: "me", parameters: params).start(completionHandler: { connection, result, error in
-            print(result)
+            print(result.debugDescription)
         })
     }
     
@@ -113,7 +131,7 @@ extension ViewController: GIDSignInUIDelegate {
 extension ViewController: GIDSignInDelegate {
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        print("Success: \(user)")
+        showAlert(withTitle: "Success", message: "Successfully Logged in \(user.userID)")
     }
     
     
