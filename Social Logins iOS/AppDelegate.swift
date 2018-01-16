@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import GoogleSignIn
+import TwitterKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         // Initialize Google sign-in
         GIDSignIn.sharedInstance().clientID = Constants.googleClientID
+        // twitter Config
+        TWTRTwitter.sharedInstance().start(withConsumerKey: Constants.twitterConsumerKey, consumerSecret: Constants.twitterConsumerSecret)
         return true
     }
     

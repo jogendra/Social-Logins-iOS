@@ -9,6 +9,9 @@ target 'Social Logins iOS' do
 pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'
+
 pod 'GoogleSignIn'
+
+pod 'TwitterKit'
 
 end
