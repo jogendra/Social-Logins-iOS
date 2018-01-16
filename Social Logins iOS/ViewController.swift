@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 import GoogleSignIn
+import TwitterKit
 
 fileprivate enum Defaults {
     static let buttonTopAnchor: CGFloat = 66.0
@@ -47,6 +48,15 @@ class ViewController: UIViewController {
         googleSignInButton.topAnchor.constraint(equalTo: fbLoginButton.topAnchor, constant: Defaults.buttonTopAnchor).isActive = true
         googleSignInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Defaults.buttonLeadingAnchor).isActive = true
         googleSignInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Defaults.buttonTrailingAnchor).isActive = true
+        // Twitter Login Button
+        let twitterLoginButton = TWTRLogInButton(logInCompletion: { session, error in
+            if (session != nil) {
+                debugPrint("signed in as \(session?.userName)")
+            } else {
+                print("error: \(error?.localizedDescription)")
+            }
+        })
+        view.addSubview(twitterLoginButton)
     }
     
     // Fetch User's Public Facebook Profile Data
