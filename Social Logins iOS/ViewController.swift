@@ -87,14 +87,15 @@ class ViewController: UIViewController {
     }
     
     // Fetch User's Public Facebook Profile Data
-    func fetchUserProfileData() {
+    fileprivate func fetchUserProfileData() {
         let params = ["fields": "email, first_name, last_name, picture"]
         FBSDKGraphRequest(graphPath: "me", parameters: params).start(completionHandler: { connection, result, error in
             print(result.debugDescription)
         })
     }
     
-    func showAlert(withTitle title: String, message: String) {
+    // Basic Alert View
+    fileprivate func showAlert(withTitle title: String, message: String) {
         let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertView.addAction(okAction)
