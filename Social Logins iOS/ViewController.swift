@@ -15,6 +15,7 @@ fileprivate enum Defaults {
     static let buttonTopAnchor: CGFloat = 66.0
     static let buttonLeadingAnchor: CGFloat = 32.0
     static let buttonTrailingAnchor: CGFloat = 32.0
+    static let facebookLoginButtonHeight: CGFloat = 40.0
 }
 
 class ViewController: UIViewController {
@@ -49,7 +50,7 @@ class ViewController: UIViewController {
         fbLoginButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Defaults.buttonTopAnchor).isActive = true
         fbLoginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Defaults.buttonLeadingAnchor).isActive = true
         fbLoginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Defaults.buttonTrailingAnchor).isActive = true
-        fbLoginButton.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
+        fbLoginButton.heightAnchor.constraint(equalToConstant: Defaults.facebookLoginButtonHeight).isActive = true
     }
     
     // MARK: Google Sign In Button Setup
