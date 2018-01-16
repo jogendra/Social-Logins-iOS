@@ -35,7 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                           sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                           annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         // twitter config
-        TWTRTwitter.sharedInstance().application(app, open: url, options: options)
+        if TWTRTwitter.sharedInstance().application(app, open: url, options: options) {
+            return true
+        }
         return handled
     }
 
