@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 import GoogleSignIn
+import TwitterKit
 
 fileprivate enum Defaults {
     static let buttonTopAnchor: CGFloat = 66.0
@@ -32,11 +33,15 @@ class ViewController: UIViewController {
         view.addSubview(fbLoginButton)
         fbLoginButton.delegate = self
         fetchUserProfileData()
+        if let facebookButtonHeightConstraint = fbLoginButton.constraints.first(where: { $0.firstAttribute == .height }) {
+            fbLoginButton.removeConstraint(facebookButtonHeightConstraint)
+        }
         // Add Constraints to fb login button
         fbLoginButton.translatesAutoresizingMaskIntoConstraints = false
         fbLoginButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Defaults.buttonTopAnchor).isActive = true
         fbLoginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Defaults.buttonLeadingAnchor).isActive = true
         fbLoginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Defaults.buttonTrailingAnchor).isActive = true
+        fbLoginButton.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
         // Google Sign In Button Setups
         view.addSubview(googleSignInButton)
         googleSignInButton.style = .wide
@@ -47,6 +52,20 @@ class ViewController: UIViewController {
         googleSignInButton.topAnchor.constraint(equalTo: fbLoginButton.topAnchor, constant: Defaults.buttonTopAnchor).isActive = true
         googleSignInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Defaults.buttonLeadingAnchor).isActive = true
         googleSignInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Defaults.buttonTrailingAnchor).isActive = true
+        // Twitter Login Button
+        let twitterLoginButton = TWTRLogInButton(logInCompletion: { session, error in
+            if (session != nil) {
+                debugPrint("signed in as \(session?.userName)")
+            } else {
+                print("error: \(error?.localizedDescription)")
+            }
+        })
+        view.addSubview(twitterLoginButton)
+        // Add Constraints to Twitter Sign In Button
+        twitterLoginButton.translatesAutoresizingMaskIntoConstraints = false
+        twitterLoginButton.topAnchor.constraint(equalTo: googleSignInButton.topAnchor, constant: Defaults.buttonTopAnchor).isActive = true
+        twitterLoginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Defaults.buttonLeadingAnchor).isActive = true
+        twitterLoginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Defaults.buttonTrailingAnchor).isActive = true
     }
     
     // Fetch User's Public Facebook Profile Data
