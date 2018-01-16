@@ -40,6 +40,7 @@ class ViewController: UIViewController {
         // Google Sign In Button Setups
         view.addSubview(googleSignInButton)
         googleSignInButton.style = .wide
+        GIDSignIn.sharedInstance().uiDelegate = self
         // Add Constraints to Google Sign In Button
         googleSignInButton.translatesAutoresizingMaskIntoConstraints = false
         googleSignInButton.topAnchor.constraint(equalTo: fbLoginButton.topAnchor, constant: Defaults.buttonTopAnchor).isActive = true
@@ -81,5 +82,11 @@ extension ViewController: FBSDKLoginButtonDelegate {
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         showAlert(withTitle: "Success", message: "Successfully Logged out")
     }
+}
+
+// MARK: - Google Sign In Delgates
+
+extension ViewController: GIDSignInUIDelegate {
+    
 }
 
