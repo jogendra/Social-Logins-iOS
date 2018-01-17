@@ -10,3 +10,4 @@ Note: Before running app please make sure -
 4. Replace `Twitter Consumer Key` and `Twitter Consumer Secret` in [Constants.swift](https://github.com/imjog/Social-Logins-iOS/blob/master/Social%20Logins%20iOS/Constants.swift) file with your Twitter App Consumer Keys. To get Consumer Key and Consumer Secret please [follow this guide](https://dev.twitter.com/twitterkit/ios/installation).
 5. Replace **Info.plist** facebook and twitter keys with your keys. Find [facebook info.plist code here](https://developers.facebook.com/docs/facebook-login/ios#4--configure-your-info-plist) and Find Twitter info.plist code [here](https://dev.twitter.com/twitterkit/ios/installation).
 6. Update URL Schemes: go to **TARGET > Info > URL Types** and replace your schems.
+![Social Login](https://github.com/imjog/Social-Logins-iOS/blob/master/Social%20Logins%20iOS/Screenshots/Screen%20Shot%202018-01-17%20at%2015.27.04.png)
