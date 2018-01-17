@@ -1,7 +1,7 @@
 # Social Logins iOS
 Basic app to show how to login with Facebook, Google, Twitter. Created for learning purpose :) using Xcode 9 and Swift 4.0
 
-Note: Before running app please make sure -
+**Note:** Before running app please make sure -
 1. run <br>
 `cd Social logins iOS` <br>
 `pod install`
@@ -11,3 +11,10 @@ Note: Before running app please make sure -
 5. Replace **Info.plist** facebook and twitter keys with your keys. Find [facebook info.plist code here](https://developers.facebook.com/docs/facebook-login/ios#4--configure-your-info-plist) and Find Twitter info.plist code [here](https://dev.twitter.com/twitterkit/ios/installation).
 6. Update URL Schemes: go to **TARGET > Info > URL Types** and replace your schems.
 ![Social Login](https://github.com/imjog/Social-Logins-iOS/blob/master/Social%20Logins%20iOS/Screenshots/Screen%20Shot%202018-01-17%20at%2015.27.04.png)
+
+### Contact
+* Email: jogendra.singh.jog@gmail.com
+* [LinkedIn](https://www.linkedin.com/in/jogendrasingh24/)
+* [Twitter](https://twitter.com/imjog24)
+* [Quora](https://www.quora.com/profile/Jogendra-Singh-63)
+* [Facebook](https://facebook.com/jogendra.singh24)
