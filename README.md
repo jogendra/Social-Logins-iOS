@@ -13,7 +13,7 @@ Basic app to show how to login with Facebook, Google, Twitter. Created for learn
 ![Social Login](https://github.com/imjog/Social-Logins-iOS/blob/master/Social%20Logins%20iOS/Screenshots/Screen%20Shot%202018-01-17%20at%2015.27.04.png)
 
 ### Contact
-* Email: jogendra.singh.jog@gmail.com
+* Email: jogendra.iitbhu@gmail.com
 * [LinkedIn](https://www.linkedin.com/in/jogendrasingh24/)
 * [Twitter](https://twitter.com/imjog24)
 * [Quora](https://www.quora.com/profile/Jogendra-Singh-63)
