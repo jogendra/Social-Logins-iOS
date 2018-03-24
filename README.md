@@ -13,7 +13,8 @@ Basic app to show how to login with Facebook, Google, Twitter. Created for learn
 ![Social Login](https://github.com/imjog/Social-Logins-iOS/blob/master/Social%20Logins%20iOS/Screenshots/Screen%20Shot%202018-01-17%20at%2015.27.04.png)
 
 ### How to use SDKs
-* For facebook login follow: [facebook swift sdk](https://github.com/facebook/facebook-sdk-swift)
+* For facebook login, follow: [facebook swift sdk](https://github.com/facebook/facebook-sdk-swift)
+* For twitter login, follow: [Twitter Kit iOS](https://github.com/twitter/twitter-kit-ios)
 
 ### Contact
 * Email: jogendra.iitbhu@gmail.com
