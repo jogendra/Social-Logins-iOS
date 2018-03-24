@@ -15,6 +15,7 @@ Basic app to show how to login with Facebook, Google, Twitter. Created for learn
 ### How to use SDKs
 * For facebook login, follow: [facebook swift sdk](https://github.com/facebook/facebook-sdk-swift)
 * For twitter login, follow: [Twitter Kit iOS](https://github.com/twitter/twitter-kit-ios)
+* For google login, follow: [Tri Sign-In for iOS](https://developers.google.com/identity/sign-in/ios/start)
 
 ### Contact
 * Email: jogendra.iitbhu@gmail.com
